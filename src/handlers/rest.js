@@ -13,6 +13,8 @@ const methods = [
 
 export const routers = [];
 
+const MIDDLEWARE = Symbol('MIDDLEWARE');
+
 class ResponseWrapper{
     constructor(res){
         this.res = res;
@@ -107,6 +109,25 @@ class Handler {
 
     }
 
+    getClass(){
+        return this.resource.constructor;
+    }
+
+}
+
+export function middleware(method){
+    if(!method || !(method instanceof Function))  {
+        throw new Error('middleware must be Function');
+    }
+    return (self,key,descriptor)=>{
+        if(typeof self.constructor != 'function'){
+            throw new Error('middleware must defined on method not on class');
+        }
+        if(!self.constructor[MIDDLEWARE]){
+            self.constructor[MIDDLEWARE] = [];
+        }
+        self.constructor[MIDDLEWARE].push(method);
+    }
 }
 
 export function Rest(url){
@@ -118,7 +139,8 @@ export function Rest(url){
         var handler  = new Handler(Class);
         methods.forEach((action)=>{
             if( handler.resource[action] instanceof Function ){
-                router[action](url,(req,res,next)=>{
+                var filters = handler.getClass()[MIDDLEWARE] || [];
+                router[action](url,filters,(req,res,next)=>{
                     handler.handle(req,res,next,action);
                 });
             }

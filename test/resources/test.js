@@ -1,4 +1,4 @@
-import {Rest} from '../../index';
+import {Rest,middleware} from '../../index';
 
 @Rest('/')
 class HomeResource {
@@ -27,9 +27,22 @@ class ApiResource {
 
 }
 
+
 @Rest('/v1/test')
 class TestApiResource {
 
+    post(){
+
+    }
+
+    @middleware((req,res,next)=>{
+        console.info("middle2")
+        next()
+    })
+    @middleware(function(req,res,next){
+        console.info("middle1",this);
+        next();
+    })
     get(){
         return {
             success:true

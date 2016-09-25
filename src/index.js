@@ -2,6 +2,7 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import requireAll from 'require-all';
 import {Rest} from './handlers/rest';
+import {middleware} from './handlers/rest';
 import {routers} from './handlers/rest';
 
 class Restful {
@@ -15,10 +16,10 @@ class Restful {
             excludeDirs :  /^\.(git|svn)$/,
             recursive   : true
         });
-
         routers.forEach(router=>{app.use(router)});
     }
 }
 
 export {Rest};
+export {middleware};
 export default new Restful();
