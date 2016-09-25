@@ -139,7 +139,7 @@ class TestApiResource {
 express-restful-es6 has @middleware annotation which adds express middleware on route methods
 
 ```javascript
-import {Rest} from 'express-restful-es6';
+import {Rest,middleware} from 'express-restful-es6';
 
 @Rest('/api/test')
 class TestApiResource {
