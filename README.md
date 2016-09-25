@@ -46,6 +46,8 @@ folder structure example
 ###### Simple examples
 
 ```javascript
+import {Rest} from 'express-restful-es6';
+
 @Rest('/')
 class SimpleResource {
 
@@ -59,6 +61,8 @@ class SimpleResource {
 With parameters
 
 ```javascript
+import {Rest} from 'express-restful-es6';
+
 @Rest('/test/:name')
 class SimpleResource {
 
@@ -72,6 +76,8 @@ class SimpleResource {
 express-restful-es6 package supports following HTTP Methods: `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `HEAD`
 
 ```javascript
+import {Rest} from 'express-restful-es6';
+
 @Rest('/test')
 class SimpleResource {
 
@@ -107,6 +113,8 @@ class SimpleResource {
 express-restful-es6 package also has a use() method which works like in express
 
 ```javascript
+import {Rest} from 'express-restful-es6';
+
 @Rest('/api')
 class ApiResource {
     use(){
@@ -131,6 +139,8 @@ class TestApiResource {
 express-restful-es6 has @middleware annotation which adds express middleware on route methods
 
 ```javascript
+import {Rest} from 'express-restful-es6';
+
 @Rest('/api/test')
 class TestApiResource {
         @middleware((req,res,next)=>{ /**...**/ next()})
@@ -145,6 +155,8 @@ class TestApiResource {
 in express-restful-es6 express' send() and render() functions can be used like this:
 
 ```javascript
+import {Rest} from 'express-restful-es6';
+
 @Rest('/api/send')
 class TestApiResourceSend {
         get(){
@@ -163,6 +175,8 @@ class TestApiResourceRender {
 In express-restful-es6 can be Promises for handling responses like this:
 
 ```javascript
+import {Rest} from 'express-restful-es6';
+
 @Rest('/')
 class HomeResource {
     async(){
