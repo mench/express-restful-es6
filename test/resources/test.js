@@ -44,9 +44,7 @@ class TestApiResource {
         next();
     })
     get(){
-        return {
-            success:true
-        }
+        return this.send("<div>hello</div>")
     }
 
 }
