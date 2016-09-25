@@ -11,6 +11,18 @@
     "watch-server": "./node_modules/.bin/babel -D --watch --stage 0 --out-dir lib ./src",
     "watch-test"  : "./node_modules/.bin/babel -D --watch --stage 0 --out-dir dest ./test"
   },
+  "keywords":[
+    "express",
+    "babel",
+    "rest",
+    "restful",
+    "es6",
+    "ecmascript 6"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mench/express-restful-es6.git"
+  },
   "dependencies": {
     "body-parser": "1.15.0",
     "cookie-parser": "1.4.0",
