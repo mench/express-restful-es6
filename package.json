@@ -1,5 +1,5 @@
 {
-  "name": "restful-server",
+  "name": "express-restful-es6",
   "main": "index",
   "version": "0.0.1",
   "author": "Armen Harutyunyan <mench.harutyunyan@gmail.com>",
