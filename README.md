@@ -150,6 +150,20 @@ class TestApiResource {
             }
         }
 ```
+Response can be with status code
+
+```javascript
+import {Rest} from 'express-restful-es6';
+
+@Rest('/api/test')
+class TestApiResource {
+
+        get(){
+            return this.status(401).json({
+                success:false
+            })
+        }
+```
 
 
 in express-restful-es6 express' send() and render() functions can be used like this:
